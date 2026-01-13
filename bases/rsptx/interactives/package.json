@@ -5,11 +5,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "check-env": "node -e 'console.log(process.env)' | grep npm",
-        "build": "webpack --mode=development",
+        "build": "npm --prefix ../micro-parsons-element run build && webpack --mode=development",
         "buildj": "webpack --mode=development --profile --json > stats.json",
-        "watch": "webpack --mode=development --watch",
+        "watch": "npm --prefix ../micro-parsons-element run build && webpack --mode=development --watch",
         "serve": "cd dist; python -m http.server 8080; cd ..",
-        "dist": "webpack --mode=production",
+        "dist":  "npm --prefix ../micro-parsons-element run build && webpack --mode=production",
         "distj": "webpack --mode=production --profile --json > stats.json",
         "analyze": "webpack-bundle-analyzer stats.json runestone/dist"
     },
@@ -43,7 +43,7 @@
         "handsontable": "7.2.2",
         "jexcel": "^3.9.1",
         "jquery-ui": "1.10.4",
-        "micro-parsons": "https://github.com/amy21206/micro-parsons-element/releases/download/v0.1.6/micro-parsons-0.1.6.tgz",
+        "micro-parsons": "file:../micro-parsons-element",
         "select2": "^4.1.0-rc.0",
         "sql.js": "1.5.0",
         "vega-embed": "3.14.0",
